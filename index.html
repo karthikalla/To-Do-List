@@ -2,36 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
+    <title>To - do List</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
-    <div class="container">
-        <div class="container-1">
-            <div class="box">
-                <h1>Task</h1>
-                <h4>create a new task</h4>
-                <input class="title_1" type="text" placeholder="title" >
-                <input class="description_1" type="text" placeholder="Add the description of your task" >
-                <button class="btn">submit</button>
+    <!--to-do-->
+    <div class="todo-container">
+        <div id="no_status" class="status"> 
+            <h1>To - Do</h1>
+            <div class="todo" draggable="true">
+                learn js
+                <span class="close" id="close">&times;</span>
             </div>
         </div>
-        <div class="container-2">
-            <div class="box">
-                <h1>In Progress</h1>
-                <div class="in_work"></div>
-            </div>
+        <div id="inProgress" class="status"> 
+            <h1>In progress</h1>
         </div>
-        <div class="container-3">
-            <div class="box">
-                <h1>Completed</h1>
-                <div class="comp-task"></div>
-            </div>
+        <div id="completed" class="status">
+            <h1>Completed</h1>
         </div>
     </div>
+
+    <!--Fab-icon-->
+    <div class="asdf">
+        <button id="myBtn" class="fab" data-target-modal="#todo_form">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+    <!--Modal-->
+    <div class="modal" id="todo_form">
+        <div class="header">
+            <div class="title">Add Todo</div>
+            <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+            <input type="text" id="todo_input" placeholder="title"/>
+            <input type="submit" value="Add Todo" id="todo_submit" />
+        </div>
+    </div>
+    <div id="overlay"></div>
     <script src="script.js"></script>
 </body>
 </html>
