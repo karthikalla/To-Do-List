@@ -18,9 +18,10 @@ body{
     width: 33%;
     background-color: #f3f3f3;
     position: relative;
-    /* margin: 0 1rem; */
+    margin: 0 0.1rem;
     padding: 60px 1rem 0.5rem;
     /* z-index: 1; */
+    border: 0.5px solid black;
 }
 .status h1{
     position: absolute;
@@ -32,8 +33,8 @@ body{
     color: #f3f3f3;
     margin: 0;
     width: 100%;
+    font-weight: 300;
     padding: 0.5rem 1rem;
-    /* border-radius: 2rem  2rem 0 0; */
 }
 
 .todo{
@@ -41,6 +42,7 @@ body{
     justify-content: space-between;
     align-items: center;
     position: relative;
+    width: 100%;
     background-color: #fff;
     box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
     rgba(15, 15, 15, 0.1) 0px 2px 4px;
@@ -49,6 +51,7 @@ body{
     font-size: 1.5rem;
     margin: 0.5rem 0;
     cursor: grab;
+    overflow: auto;
     /* z-index: 2; */
 }
 .todo .close{
@@ -92,6 +95,10 @@ body{
 .fab:hover {
     cursor: pointer;
 }
+
+.dragging{
+    background-color:#7d7a7a;
+}
 /*modal*/
 
 .close-modal {
@@ -102,7 +109,7 @@ body{
 }
 
 .modal {
-    width: 450px;
+    min-width: 450px;
     position: fixed;
     top: -50%;
     left: 50%;
@@ -114,10 +121,13 @@ body{
     background-color: #fff;
 }
 
-.modal.active {
-    top: 15%;
-}
 
+.modal.active {
+    top: 20%;
+}
+.model.active{
+    top: 35%;
+}
 .modal .header {
     display: flex;
     justify-content: space-between;
@@ -154,33 +164,67 @@ body{
 }
 
 #todo_submit {
-    background-color: #4caf50;
+    background-color: #3a86ff;
     color: #f3f3f3;
     font-size: 1.25rem;
     border: none;
     cursor: pointer;
 }
 
+#modal_1 > .header > .title{
+    padding-left: 1rem;
+}
+
+.title{
+    margin-left: 0.5rem;
+}
+textarea{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 0;
+    border: 1px solid black;
+    padding: 0.5rem;
+    resize: none;
+}
+
+.footer{
+    height: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #ccc;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.time{
+    margin: 0.5rem;
+    height: 1rem;
+}
+
 @media screen and (max-width:426px) {
         .todo-container {
+            display: flex;
             flex-direction: column; 
         }
     
         .status {
             width: 100%; 
-            margin: 0; 
+            margin-bottom: 0.5rem; 
             min-height: 30vh;
         }
         .todo {
             font-size: 1.2rem;
         }
         .modal{
-            width: 350px;
+            min-width: 350px;
         }
 }
 
 @media screen and (max-width:320px){
     .modal{
-        width: 300px;
+        min-width: 290px;
     }
 }

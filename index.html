@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To - do List</title>
+    <title>TO - Do App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
@@ -12,13 +12,13 @@
     <div class="todo-container">
         <div id="no_status" class="status"> 
             <h1>To - Do</h1>
-            <div class="todo" draggable="true">
+            <div class="todo" draggable="true" data-target="#modal_1">
                 learn js
                 <span class="close" id="close">&times;</span>
             </div>
         </div>
         <div id="inProgress" class="status"> 
-            <h1>In progress</h1>
+            <h1>In Progress</h1>
         </div>
         <div id="completed" class="status">
             <h1>Completed</h1>
@@ -27,22 +27,38 @@
 
     <!--Fab-icon-->
     <div class="asdf">
-        <button id="myBtn" class="fab" data-target-modal="#todo_form">
+        <button id="myBtn" class="fab" data-target="#todo_form">
             <i class="fa fa-plus"></i>
         </button>
     </div>
     <!--Modal-->
-    <div class="modal" id="todo_form">
+    <div class="modal model"  id="todo_form">
         <div class="header">
             <div class="title">Add Todo</div>
             <button class="btn close-modal">&times;</button>
         </div>
         <div class="body">
             <input type="text" id="todo_input" placeholder="title"/>
+            <textarea  id="text_input" cols="30" rows="10" placeholder="description of your task"></textarea>
             <input type="submit" value="Add Todo" id="todo_submit" />
         </div>
     </div>
     <div id="overlay"></div>
+    <!--desc Modal-->
+    <div class="modal" id="modal_1">
+        <div class="header">
+            <div class="title">Description</div>
+            <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+            <div id="todo_description">
+                <p>to create a to-do list using drag and drop</p>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="time">time</div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
